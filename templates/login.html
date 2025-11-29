@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if erreur %}
+    <p>Erreur : {{erreur}}</p>
+{% endif %}
+<div>
+    <form method="POST" action = "{{url_for('login')}}">
+        <div>
+            <label>Utilisateur</label>
+            <input name="user" type = "text" placeholder="Entrez ici votre id">
+        </div>
+        <div>
+            <label>Mot de passe</label>
+            <input name="password" type = "password" placeholder="Entrez ici votre mdp">
+        </div>
+        <div>
+            <button type="submit">Se connecter</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+{%block content%}
+
+{% if erreur %}
+{{erreur}}
+{%endif%}
+
+<form method="POST" action = "{{url_for('publish')}}">
+        <div>
+            <label>Titre de l'annonce</label>
+            <input name="titre_annonce" type = "text" placeholder="">
+        </div>
+        <div>
+            <label>Descritpion</label>
+            <input name="descritpion_annonce" type = "text" placeholder="">
+        </div>
+        <div>
+            <button type="submit">Publier</button>
+        </div>
+    </form>
+{%endblock%}

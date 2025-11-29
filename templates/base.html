@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-blue-200">
+    <header class="bg-blue-700 flex justify-around p-10 py-12">
+        <h1 class="font-bold text-3xl text-white">Invit'Online</h1>
+        <div><img src="../static/image/logo.png" width = "100"></div>
+
+        <!--Barre de recherche-->
+        <form action = "/search" method = "get" class = "">
+            <input type = "text" name = "q" placeholder = "Recherche" class="">
+            <button type = "submit" class = "">🔎</button>
+        </form>
+
+        <!--Menu de navigation-->
+        <nav>
+            <ul class="flex space-x-10 text-2xl text-white font-semibold">
+                <li><a href="/">Accueil</a></li>
+                {%if session['user']%}
+                <li><a href="/publish" class="active">Publier</a></li>
+                <li><a href="/logout" class="active">Se déconnecter</a></li>
+                {%else%}
+                <li><a href="/login" class="active">LogIn</a></li>
+                <li><a href="/register" class="active">register</a></li>
+                {%endif%}
+            </ul>
+        </nav>
+    </header>
+
+    <main class="pt-10 pb-10 py-20">
+        {% block content %}
+        <!--Contenu contextuel-->
+        {% endblock %}
+
+    </main> 
+
+    <footer class="bg-blue-700 p-5 text-center">
+        <p>Xavier 2025</p>
+        <p>contactmoi@contactmail.fr</p>
+    </footer>
+</body>
+</html>

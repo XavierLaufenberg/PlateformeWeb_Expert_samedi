@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% if erreur %}
+{{erreur}}
+{%endif%}
+{% block content %}
+        <div class="font-semibold text-2xl text-center pb-6 px-24">
+            <h2>Résultats pour {{query}} </h2>
+        </div>
+
+        <section class="grid grid-cols-4 grid-rows-2 gap-20 p-5">
+             {% for annonce in annonces %}
+                <article class="bg-white shadow-xl border-emerald-200 border-solid border-2 rounded-lg p-3">
+                    <h2 class="text-lg text-center pb-1" >Annonce</h2>
+                    <div class="px-6"><hr></div>
+                    <p class="pt-4">{{annonce["Titre"]}}</p>
+                    <p class="flex justify-end pt-2 text-sm">{{annonce["Description"]}}</p>
+                    <p class="flex justify-end pt-2 text-sm">{{annonce["Auteur"]}}</p>
+                </article>
+            {% endfor %}
+
+            {% if annonces|length == 0 %}
+                <p>Aucun résultat</p>
+            {% endif %}
+        </section>
+{% endblock %}
