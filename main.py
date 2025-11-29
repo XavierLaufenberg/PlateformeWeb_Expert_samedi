@@ -106,12 +106,6 @@ def publish():
             return render_template("publish.html", erreur = 'Veuillez remplir tout les champs obligatoires')
     return render_template("publish.html")    
                 
-#route pour afficher et récupérer les données de la bdd 
-@app.route("/test")
-def test():
-    test_data = list(db["Test"].find({}))  #récupère tous les documents de la collection test
-    return render_template('test.html', test=test_data)#affiche le template "test.html" et attribut les bonnes valeurs à la variable test
-
 
 #Lance l'application
 if __name__ == "__main__":
